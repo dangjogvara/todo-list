@@ -13,19 +13,23 @@ function addTodo(e) {
 
   const deleteBtn = document.createElement('button');
   deleteBtn.type = 'button';
-  deleteBtn.classList.add('delete-btn');
+  deleteBtn.className = 'delete-btn';
   deleteBtn.innerHTML = '<i class="fas fa-trash"></i>';
 
   const completeBtn = document.createElement('button');
-  completeBtn.classList.add('complete-btn');
+  completeBtn.type = 'button';
+  completeBtn.className = 'complete-btn';
   completeBtn.innerHTML = '<i class="fas fa-check"></i>';
 
   const row = document.createElement('tr');
   const todo = document.createElement('td');
   const date = document.createElement('td');
+  const buttons = document.createElement('td');
+  buttons.append(completeBtn, deleteBtn);
+
   todo.innerText = todoInput.value;
   date.innerText = dateInput.value;
-  row.append(todo, date, completeBtn, deleteBtn);
+  row.append(todo, date, buttons);
   tableBody.append(row);
 
   // Clear input field
@@ -35,8 +39,9 @@ function addTodo(e) {
 
 function removeTodo(e) {
   const item = e.target;
+  console.log(item);
   if (item.classList[0] === 'delete-btn') {
-    const row = item.parentElement;
+    const row = item.parentElement.parentElement;
     row.remove();
   }
 }
