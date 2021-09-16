@@ -24,10 +24,14 @@ function addTodo(e) {
   completeBtn.innerHTML = '<i class="fas fa-check"></i>';
 
   const row = document.createElement('tr');
+  row.className = 'table-row';
+
   const todo = document.createElement('td');
-  todo.id = 'todoText';
+  todo.className = 'todo-text';
+
   const date = document.createElement('td');
-  date.id = 'todoDate';
+  date.className = 'todo-tate';
+
   const buttons = document.createElement('td');
   buttons.append(completeBtn, deleteBtn);
 
@@ -51,7 +55,10 @@ function manageTodo(e) {
   const item = e.target;
   if (item.classList[0] === 'delete-btn') {
     const row = item.parentElement.parentElement;
-    row.remove();
+    console.log(row.className);
+    //row.remove();
+    let todos;
+    todos = JSON.parse(localStorage.getItem('todos'));
   }
 
   if (item.classList[0] === 'complete-btn') {
@@ -107,12 +114,15 @@ function loadTable() {
     completeBtn.innerHTML = '<i class="fas fa-check"></i>';
 
     const row = document.createElement('tr');
+    row.className = 'table-row';
 
     const loadTodo = document.createElement('td');
     loadTodo.innerText = todo.todo;
+    loadTodo.className = 'todo-text';
 
     const loadDate = document.createElement('td');
     loadDate.innerText = todo.date;
+    loadDate.className = 'todo-tate';
 
     const buttons = document.createElement('td');
     buttons.append(completeBtn, deleteBtn);
@@ -122,3 +132,5 @@ function loadTable() {
     tableBody.append(row);
   });
 }
+
+function deleteTodo(todo) {}
