@@ -95,5 +95,30 @@ function loadTable() {
     todos = JSON.parse(localStorage.getItem('todos'));
   }
 
-  console.log(todos);
+  todos.forEach(function (todo) {
+    const deleteBtn = document.createElement('button');
+    deleteBtn.type = 'button';
+    deleteBtn.className = 'delete-btn';
+    deleteBtn.innerHTML = '<i class="fas fa-trash"></i>';
+
+    const completeBtn = document.createElement('button');
+    completeBtn.type = 'button';
+    completeBtn.className = 'complete-btn';
+    completeBtn.innerHTML = '<i class="fas fa-check"></i>';
+
+    const row = document.createElement('tr');
+
+    const loadTodo = document.createElement('td');
+    loadTodo.innerText = todo.todo;
+
+    const loadDate = document.createElement('td');
+    loadDate.innerText = todo.date;
+
+    const buttons = document.createElement('td');
+    buttons.append(completeBtn, deleteBtn);
+
+    row.append(loadTodo, loadDate, buttons);
+
+    tableBody.append(row);
+  });
 }
