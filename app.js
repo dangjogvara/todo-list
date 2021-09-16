@@ -39,7 +39,6 @@ function addTodo(e) {
 
 function removeTodo(e) {
   const item = e.target;
-  console.log(item);
   if (item.classList[0] === 'delete-btn') {
     const row = item.parentElement.parentElement;
     row.remove();
