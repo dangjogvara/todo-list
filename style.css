@@ -44,6 +44,11 @@ form button {
   background: bisque;
 }
 
+.input-container {
+  display: flex;
+  justify-content: center;
+}
+
 .todo-container {
   display: flex;
   justify-content: center;
@@ -83,8 +88,9 @@ td {
 .complete-btn {
   cursor: pointer;
   border: none;
-  padding: 00.5rem;
+  padding: 0 0.5rem;
   background-color: bisque;
+  font-size: x-large;
 }
 
 .todo-button {
