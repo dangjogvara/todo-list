@@ -79,15 +79,14 @@ td {
   pointer-events: none;
 }
 
+.delete-btn,
 .complete-btn {
-  min-width: 33%;
-  padding: 0.3rem;
   cursor: pointer;
+  border: none;
+  padding: 00.5rem;
+  background-color: bisque;
 }
 
-.delete-btn {
-  cursor: pointer;
-  min-width: 33%;
-  padding: 0.3rem;
+.todo-button {
   cursor: pointer;
 }
