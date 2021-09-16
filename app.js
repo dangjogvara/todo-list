@@ -55,17 +55,22 @@ function manageTodo(e) {
   const item = e.target;
   if (item.classList[0] === 'delete-btn') {
     const row = item.parentElement.parentElement;
-    console.log(row.className);
-    //row.remove();
+
+    row.remove();
+
     let todos;
     todos = JSON.parse(localStorage.getItem('todos'));
+
+    console.log(row.firstChild.innerText);
+
+    todos = todos.filter(todo => todo.todo !== row.firstChild.innerText);
+    // Save as JSON
+    localStorage.setItem('todos', JSON.stringify(todos));
   }
 
   if (item.classList[0] === 'complete-btn') {
     const row = item.parentElement.previousSibling.previousSibling;
     row.classList = 'completed';
-
-    console.log(row);
   }
 }
 
