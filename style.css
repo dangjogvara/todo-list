@@ -85,6 +85,7 @@ tbody {
 }
 
 td {
+  font-size: 1.3rem;
   color: black;
   padding: 0.5rem;
 }
@@ -114,4 +115,13 @@ td {
 
 .todo-button {
   cursor: pointer;
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+.fall {
+  transform: translateY(8rem) rotateZ(20deg);
+  opacity: 0;
 }
