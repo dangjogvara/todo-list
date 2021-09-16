@@ -39,9 +39,20 @@ form input,
 form button {
   margin-left: 0.5rem;
   padding: 0.5rem;
-  font-size: 1rem;
+  font-size: 1.2rem;
   border: none;
   background: bisque;
+}
+
+form button {
+  width: 4rem;
+  /* Add animation to button */
+  transition: all 0.3s ease;
+}
+
+form button:hover {
+  background: rgb(138, 102, 36);
+  color: yellow;
 }
 
 .input-container {
@@ -55,7 +66,7 @@ form button {
 }
 
 table {
-  min-width: 30%;
+  min-width: 50%;
 }
 
 tbody,
@@ -63,6 +74,10 @@ thead,
 th {
   text-align: center;
   min-width: 30%;
+}
+
+th {
+  font-size: 1.5rem;
 }
 
 tbody {
@@ -82,6 +97,10 @@ td {
 .fa-trash {
   color: red;
   pointer-events: none;
+}
+
+.fa-plus-square {
+  font-size: x-large;
 }
 
 .delete-btn,
