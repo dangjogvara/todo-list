@@ -150,7 +150,7 @@ function loadTable() {
 
     const loadDate = document.createElement('td');
     loadDate.innerText = todo.date;
-    loadDate.className = 'todo-tate';
+    loadDate.className = 'todo-date';
 
     const buttons = document.createElement('td');
     buttons.append(completeBtn, deleteBtn);
