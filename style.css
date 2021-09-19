@@ -19,15 +19,17 @@ header {
 
 header,
 form {
-  /* set header and form element height*/
+  /* Set header and form element height*/
   min-height: 20vh;
 
-  /* using flexbox for layout*/
+  /* Using flexbox for layout*/
   display: flex;
+  /* Center stuff on screen */
   justify-content: center;
   align-items: center;
 }
 
+/* Style the inputs and the submit button */
 form input,
 form button {
   margin-left: 0.5rem;
@@ -37,27 +39,32 @@ form button {
   background: bisque;
 }
 
+/* style the button*/
 form button {
   width: 4rem;
   /* Add animation to button */
   transition: all 0.3s ease;
 }
 
+/* Animation when hover over button */
 form button:hover {
   background: rgb(138, 102, 36);
   color: yellow;
 }
 
+/* Using Flexbox for positioning */
 .input-container {
   display: flex;
   justify-content: center;
 }
 
+/* Using Flexbox for positioning */
 .todo-container {
   display: flex;
   justify-content: center;
 }
 
+/* Set width */
 table {
   min-width: 50%;
 }
@@ -83,20 +90,26 @@ td {
   padding: 0.5rem;
 }
 
+/* font-awesome icon */
 .fa-check {
   color: rgb(0, 255, 0);
+  /* Click through */
   pointer-events: none;
 }
 
+/* font-awesome icon */
 .fa-trash {
   color: red;
+  /* Click through */
   pointer-events: none;
 }
 
+/* font-awesome icon */
 .fa-plus-square {
   font-size: x-large;
 }
 
+/* Styling the buttons inside the table */
 .delete-btn,
 .complete-btn {
   cursor: pointer;
@@ -106,10 +119,27 @@ td {
   font-size: x-large;
 }
 
+/* Set cursor */
 .todo-button {
   cursor: pointer;
 }
 
+/* Mark as completed */
 .completed {
   text-decoration: line-through;
+}
+
+/* footer at bottom */
+.page-footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgb(170, 100, 54);
+  color: white;
+  text-align: center;
+}
+
+#link {
+  color: white;
 }
