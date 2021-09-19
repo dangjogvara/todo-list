@@ -1,10 +1,3 @@
-/* remove basic browser styling */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
   /* add gradient color to background */
   background-image: linear-gradient(120deg, #f1cd39, #f58c72);
@@ -119,9 +112,4 @@ td {
 
 .completed {
   text-decoration: line-through;
-}
-
-.fall {
-  transform: translateY(8rem) rotateZ(20deg);
-  opacity: 0;
 }
