@@ -137,5 +137,3 @@ function loadTable() {
     tableBody.append(row);
   });
 }
-
-function deleteTodo(todo) {}
