@@ -10,7 +10,7 @@ tableBody.addEventListener('click', manageTodo);
 // Call this function on load
 document.addEventListener('DOMContentLoaded', loadTable);
 
-// This functions adds To-do's
+// This function adds To-do's
 function addTodo(e) {
     // Prevent the page from reloading
     e.preventDefault();
@@ -32,6 +32,12 @@ function addTodo(e) {
     row.className = 'table-row';
 
     // create td element for table
+    const id = document.createElement('td');
+    id.id = 'todo-id';
+    id.className = 'todo-id';
+    id.style.display = 'none';
+
+    // create td element for table
     const todo = document.createElement('td');
     todo.className = 'todo-text';
 
@@ -46,13 +52,28 @@ function addTodo(e) {
     // Get values from inputs
     todo.innerText = todoInput.value;
     date.innerText = dateInput.value;
+
+
     // Append everything to the table
-    row.append(todo, date, buttons);
+    row.append(id, todo, date, buttons);
 
     // Simple alert warning
-    if (todoInput.value !== '') {
+    if (todoInput.value !== '' && dateInput.value !== '') {
+        // get values from inputs
+        let todoText = row.children[1].innerText;
+        let todoDate = row.children[2].innerText;
+
+        // Object to save
+        const todoObj = {
+            todo: todoText,
+            date: todoDate,
+        };
+
+        $.post('saveTodo.php', todoObj, (res) => {
+            // Store ID retrieved from database for later use
+            $('#todo-id').html(res);
+        });
         tableBody.append(row);
-        saveTodo(row);
     } else {
         alert('Please add a Todo!');
     }
@@ -62,22 +83,6 @@ function addTodo(e) {
     dateInput.value = '';
 }
 
-function saveTodo(rows) {
-    // get values from inputs
-    let todoText = rows.children[0].innerText;
-    let todoDate = rows.children[1].innerText;
-
-    // Object to save
-    const saveTodo = {
-        todo: todoText,
-        date: todoDate,
-    };
-
-    // save to-do using jquery
-    $.post('saveTodo.php', saveTodo, (res) => {
-        console.log(res);
-    });
-}
 
 function deleteTodo() {
 
@@ -106,6 +111,7 @@ function loadTable() {
     // Load data from database using juery
     $.getJSON('getAll.php', (res) => {
 
+        console.log(res);
         // Loop through each todo in the array and create table (same as in the addTodo() function)
         res.forEach((todo) => {
             const deleteBtn = document.createElement('button');
@@ -121,6 +127,14 @@ function loadTable() {
             const row = document.createElement('tr');
             row.className = 'table-row';
 
+            // create td element for table
+            const loadId = document.createElement('td');
+            loadId.innerText = todo.id;
+            loadId.id = 'id';
+            loadId.className = 'todo-id';
+            loadId.style.display = 'none';
+
+
             const loadTodo = document.createElement('td');
             loadTodo.innerText = todo.todo;
             loadTodo.className = 'todo-text';
@@ -132,7 +146,7 @@ function loadTable() {
             const buttons = document.createElement('td');
             buttons.append(completeBtn, deleteBtn);
 
-            row.append(loadTodo, loadDate, buttons);
+            row.append(loadId, loadTodo, loadDate, buttons);
 
             // Append to table
             tableBody.append(row);
