@@ -53,6 +53,7 @@ function addTodo(e) {
     if (todoInput.value !== '') {
         tableBody.append(row);
         saveTable(row);
+        console.log(row);
     } else {
         alert('Please add a Todo!');
     }
@@ -61,6 +62,22 @@ function addTodo(e) {
     todoInput.value = '';
     dateInput.value = '';
 }
+
+function saveTable(rows) {
+    // get values from inputs
+    let todoText = rows.children[0].innerText;
+    let todoDate = rows.children[1].innerText;
+    const saveTodo = {
+        todo: todoText,
+        date: todoDate,
+    };
+
+
+    $.post('saveTodo.php', saveTodo, () => {
+        console.log(saveTodo);
+    })
+}
+
 
 function manageTodo(e) {
     // Check what button you are clicking
