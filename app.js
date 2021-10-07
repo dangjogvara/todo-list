@@ -114,8 +114,7 @@ function loadTable() {
     // Load data from database using juery
     $.getJSON('getAll.php', (res) => {
 
-        console.log(res);
-        // Loop through each todo in the array and create table (same as in the addTodo() function)
+        // Loop through each to-do in the array and create table (same as in the addTodo() function)
         res.forEach((todo) => {
             const deleteBtn = document.createElement('button');
             deleteBtn.type = 'button';
