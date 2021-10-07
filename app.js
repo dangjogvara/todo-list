@@ -101,7 +101,7 @@ function manageTodo(e) {
         // Delete to-do from database
         const id = +item.parentElement.parentElement.children[0].innerHTML;
         $.post('deleteTodo.php', {id: id}, () => {
-            alert(`Deleted user with id: ${id}`);
+            // alert(`Deleted user with id: ${id}`);
         });
     }
 
