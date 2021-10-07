@@ -52,8 +52,7 @@ function addTodo(e) {
     // Simple alert warning
     if (todoInput.value !== '') {
         tableBody.append(row);
-        saveTable(row);
-        console.log(row);
+        saveTodo(row);
     } else {
         alert('Please add a Todo!');
     }
@@ -63,19 +62,25 @@ function addTodo(e) {
     dateInput.value = '';
 }
 
-function saveTable(rows) {
+function saveTodo(rows) {
     // get values from inputs
     let todoText = rows.children[0].innerText;
     let todoDate = rows.children[1].innerText;
+
+    // Object to save
     const saveTodo = {
         todo: todoText,
         date: todoDate,
     };
 
+    // save to-do using jquery
+    $.post('saveTodo.php', saveTodo, (res) => {
+        console.log(res);
+    });
+}
 
-    $.post('saveTodo.php', saveTodo, () => {
-        console.log(saveTodo);
-    })
+function deleteTodo() {
+
 }
 
 
@@ -84,18 +89,9 @@ function manageTodo(e) {
     const item = e.target;
     if (item.classList[0] === 'delete-btn') {
         const row = item.parentElement.parentElement;
-
         // Remove row if button pressed has class delete-btn
         row.remove();
-
-        // Get todos from localStorage
-        let todos;
-        todos = JSON.parse(localStorage.getItem('todos'));
-
-        // Remove todo using filter() that matches the row
-        todos = todos.filter(todo => todo.todo !== row.firstChild.innerText);
-        // Save as JSON in localStorage
-        localStorage.setItem('todos', JSON.stringify(todos));
+        console.log(row);
     }
 
     // Mark task as completed
