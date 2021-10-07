@@ -13,11 +13,16 @@
               integrity="sha512-9BwLAVqqt6oFdXohPLuNHxhx36BVj5uGSGmizkmGkgl3uMSgNalKc/smum+GJU/TTP0jy0+ruwC3xNAk3F759A=="
               crossorigin="anonymous" referrerpolicy="no-referrer"/>
         <link rel="stylesheet" href="style.css">
+        <script
+                src="https://code.jquery.com/jquery-3.6.0.min.js"
+                integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+                crossorigin="anonymous"></script>
         <title>Todo List</title>
     </head>
 
     <body>
-        <?php include_once 'connection.php'; ?>
+        <?php include_once 'connection.php' ?>
+
         <header>
             <h1>Todo List</h1>
         </header>
@@ -47,8 +52,6 @@
         </div>
 
         <script src="./app.js"></script>
-        <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
-                integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
     </body>
     <div class="page-footer">
         <footer>
