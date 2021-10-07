@@ -28,7 +28,7 @@
         </header>
         <form>
             <div class="input-container">
-                <input class=" todo-input" type="text" placeholder="Add Todo">
+                <input class="todo-input" type="text" placeholder="Add Todo">
                 <input class="date-input" type="date">
                 <button class="todo-button" name="save" id="save" type="submit">
                     <i class="fas fa-plus-square"></i>
@@ -39,6 +39,7 @@
             <table id="table">
                 <thead>
                 <tr>
+                    <th style="display: none">ID</th>
                     <th>Todos</th>
                     <th>Date</th>
                     <th>Manage</th>
