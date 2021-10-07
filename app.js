@@ -96,7 +96,10 @@ function manageTodo(e) {
         const row = item.parentElement.parentElement;
         // Remove row if button pressed has class delete-btn
         row.remove();
-        console.log(row);
+        const id = item.parentElement.parentElement.children[0].innerHTML;
+        $.post('deleteTodo.php', {id: id}, (res) => {
+            console.log(res);
+        });
     }
 
     // Mark task as completed
