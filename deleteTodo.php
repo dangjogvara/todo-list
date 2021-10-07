@@ -6,7 +6,7 @@ if (isset($mysqli)) {
     $mysqli->query("DELETE FROM test WHERE id=$id") or
     die($mysqli->error);
 
-    echo $id;
+   
 }
 
 

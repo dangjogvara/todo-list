@@ -93,16 +93,13 @@ function manageTodo(e) {
     // Check what button you are clicking
     const item = e.target;
     if (item.classList[0] === 'delete-btn') {
-        const row = item.parentElement.parentElement;
-
-        // Remove row if button pressed has class delete-btn
-        row.remove();
-
         // Delete to-do from database
         const id = +item.parentElement.parentElement.children[0].innerHTML;
-        $.post('deleteTodo.php', {id: id}, () => {
-            // alert(`Deleted user with id: ${id}`);
-        });
+        $.post('deleteTodo.php', {id: id});
+
+        // Remove row
+        const row = item.parentElement.parentElement;
+        row.remove();
     }
 
     // Mark task as completed
