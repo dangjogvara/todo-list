@@ -21,7 +21,7 @@
     </head>
 
     <body>
-        <?php include_once 'connection.php' ?>
+        <?php include_once 'connection.php'; ?>
 
         <header>
             <h1>Todo List</h1>
@@ -30,7 +30,7 @@
             <div class="input-container">
                 <input class="todo-input" type="text" placeholder="Add Todo">
                 <input class="date-input" type="date">
-                <button class="todo-button" name="save" type="submit">
+                <button class="todo-button" name="save" id="save" type="submit">
                     <i class="fas fa-plus-square"></i>
                 </button>
             </div>
