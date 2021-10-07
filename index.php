@@ -45,6 +45,7 @@
     </div>
 
     <script src="./app.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
 </body>
 <div class="page-footer">
     <footer>
