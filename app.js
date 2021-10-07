@@ -95,7 +95,10 @@ function manageTodo(e) {
     if (item.classList[0] === 'delete-btn') {
         // Delete to-do from database
         const id = +item.parentElement.parentElement.children[0].innerHTML;
-        $.post('deleteTodo.php', {id: id});
+        $.ajax({
+            url: `deleteTodo.php?id=${id}`,
+            type: 'DELETE'
+        });
 
         // Remove row
         const row = item.parentElement.parentElement;
