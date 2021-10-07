@@ -1,10 +1,10 @@
 <?php
 $host = 'localhost';
-$user = 'root';
 $password = '';
+$user = 'root';
 $db = 'todo';
 
 
 $mysqli = new mysqli($host, $user, $password, $db);
 if ($mysqli->connect_error)
-    die('Connect Error');
+    die('Connection Error');
