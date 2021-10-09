@@ -3,8 +3,10 @@
 $todo = $_POST['todo'];
 $date = $_POST['date'];
 
+$sql = "INSERT INTO test(todo, date) VALUES('$todo','$date')";
+
 if (isset($mysqli)) {
-    $mysqli->query("INSERT INTO test(todo, date) VALUES('$todo','$date')") or
+    $mysqli->query($sql) or
     die($mysqli->error);
 
     $last_inserted = $mysqli->insert_id;
