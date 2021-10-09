@@ -74,6 +74,13 @@ input::-webkit-datetime-edit-fields-wrapper {
     cursor: pointer;
 }
 
+@-moz-document url-prefix() {
+    .date-input {
+        cursor: pointer;
+    }
+}
+
+
 /* Set width */
 table {
     min-width: 50%;
