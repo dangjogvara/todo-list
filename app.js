@@ -34,8 +34,7 @@ function addTodo(e) {
     // create td element for table
     const id = document.createElement('td');
     id.id = 'todo-id';
-    id.innerHTML =
-        id.className = 'todo-id';
+    id.innerHTML = id.className = 'todo-id';
     id.style.display = 'none';
 
     // create td element for table
@@ -54,7 +53,6 @@ function addTodo(e) {
     todo.innerText = todoInput.value;
     date.innerText = dateInput.value;
 
-
     // Append everything to the table
     row.append(id, todo, date, buttons);
 
@@ -70,13 +68,12 @@ function addTodo(e) {
             date: todoDate,
         };
 
-        $.post('saveTodo.php', todoObj).done((res) => {
-            tableBody.append(row)
+        $.post('saveTodo.php', todoObj).done(res => {
+            tableBody.append(row);
             const rowId = $('.todo-id');
             rowId.attr('id', res);
             rowId.html(res);
         });
-
     } else {
         alert('Please add a Todo!');
     }
@@ -84,9 +81,7 @@ function addTodo(e) {
     // Clear input field
     todoInput.value = '';
     dateInput.value = '';
-
 }
-
 
 function manageTodo(e) {
     // Check what button you are clicking
@@ -97,16 +92,14 @@ function manageTodo(e) {
 
         $.ajax({
             url: `deleteTodo.php?id=${id}`,
-            type: 'DELETE'
-        }).done((id) => {
+            type: 'DELETE',
+        }).done(id => {
             const row = item.parentElement.parentElement;
             const rowId = $('#todo-id').html();
             if ($(rowId === id)) {
                 row.remove();
             }
         });
-
-
     }
 
     // Mark task as completed
@@ -119,10 +112,9 @@ function manageTodo(e) {
 // Load table from database
 function loadTable() {
     // Load data from database using juery
-    $.getJSON('getAll.php', (res) => {
-
+    $.getJSON('getAll.php', res => {
         // Loop through each to-do in the array and create table (same as in the addTodo() function)
-        res.forEach((todo) => {
+        res.forEach(todo => {
             const deleteBtn = document.createElement('button');
             deleteBtn.type = 'button';
             deleteBtn.className = 'delete-btn';
@@ -143,7 +135,6 @@ function loadTable() {
             loadId.className = 'todo-id';
             loadId.style.display = 'none';
 
-
             const loadTodo = document.createElement('td');
             loadTodo.innerText = todo.todo;
             loadTodo.className = 'todo-text';
@@ -160,5 +151,5 @@ function loadTable() {
             // Append to table
             tableBody.append(row);
         });
-    })
+    });
 }
