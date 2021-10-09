@@ -87,6 +87,7 @@ function manageTodo(e) {
     // Check what button you are clicking
     const item = e.target;
     if (item.classList[0] === 'delete-btn') {
+
         // Delete to-do from database
         const id = item.parentElement.parentElement.children[0].id;
 
@@ -104,8 +105,19 @@ function manageTodo(e) {
 
     // Mark task as completed
     if (item.classList[0] === 'complete-btn') {
+        const id = item.parentElement.parentElement.children[0].id;
         const row = item.parentElement.previousSibling.previousSibling;
-        row.classList = 'completed';
+        let done = false;
+
+        // Toggle true or false and set style
+        if (row.classList.toggle('completed')) {
+            done = !done;
+        }
+
+        $.ajax({
+            url: `toggleDone.php?id=${id}&done=${done}`,
+            type: 'PATCH',
+        });
     }
 }
 
@@ -138,6 +150,9 @@ function loadTable() {
             const loadTodo = document.createElement('td');
             loadTodo.innerText = todo.todo;
             loadTodo.className = 'todo-text';
+            if (todo.done == 1) {
+                loadTodo.className = 'completed'
+            }
 
             const loadDate = document.createElement('td');
             loadDate.innerText = todo.date;
@@ -150,6 +165,7 @@ function loadTable() {
 
             // Append to table
             tableBody.append(row);
+            console.log(todo.done);
         });
     });
 }
