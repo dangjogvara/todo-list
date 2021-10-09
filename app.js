@@ -94,7 +94,6 @@ function manageTodo(e) {
     if (item.classList[0] === 'delete-btn') {
         // Delete to-do from database
         const id = item.parentElement.parentElement.children[0].id;
-        console.log(id);
 
         $.ajax({
             url: `deleteTodo.php?id=${id}`,
