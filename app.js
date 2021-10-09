@@ -34,7 +34,8 @@ function addTodo(e) {
     // create td element for table
     const id = document.createElement('td');
     id.id = 'todo-id';
-    id.className = 'todo-id';
+    id.innerHTML =
+        id.className = 'todo-id';
     id.style.display = 'none';
 
     // create td element for table
@@ -69,11 +70,13 @@ function addTodo(e) {
             date: todoDate,
         };
 
-        $.post('saveTodo.php', todoObj, (res) => {
-            // Store ID retrieved from database for later use
-            $('#todo-id').html(res);
+        $.post('saveTodo.php', todoObj).done((res) => {
+            tableBody.append(row)
+            const rowId = $('.todo-id');
+            rowId.attr('id', res);
+            rowId.html(res);
         });
-        tableBody.append(row);
+
     } else {
         alert('Please add a Todo!');
     }
@@ -81,10 +84,6 @@ function addTodo(e) {
     // Clear input field
     todoInput.value = '';
     dateInput.value = '';
-}
-
-
-function deleteTodo() {
 
 }
 
@@ -94,15 +93,21 @@ function manageTodo(e) {
     const item = e.target;
     if (item.classList[0] === 'delete-btn') {
         // Delete to-do from database
-        const id = +item.parentElement.parentElement.children[0].innerHTML;
+        const id = item.parentElement.parentElement.children[0].id;
+        console.log(id);
+
         $.ajax({
             url: `deleteTodo.php?id=${id}`,
             type: 'DELETE'
+        }).done((id) => {
+            const row = item.parentElement.parentElement;
+            const rowId = $('#todo-id').html();
+            if ($(rowId === id)) {
+                row.remove();
+            }
         });
 
-        // Remove row
-        const row = item.parentElement.parentElement;
-        row.remove();
+
     }
 
     // Mark task as completed
@@ -116,7 +121,7 @@ function manageTodo(e) {
 function loadTable() {
     // Load data from database using juery
     $.getJSON('getAll.php', (res) => {
-
+        console.log(res);
         // Loop through each to-do in the array and create table (same as in the addTodo() function)
         res.forEach((todo) => {
             const deleteBtn = document.createElement('button');
@@ -135,7 +140,7 @@ function loadTable() {
             // create td element for table
             const loadId = document.createElement('td');
             loadId.innerText = todo.id;
-            loadId.id = 'id';
+            loadId.id = todo.id;
             loadId.className = 'todo-id';
             loadId.style.display = 'none';
 
