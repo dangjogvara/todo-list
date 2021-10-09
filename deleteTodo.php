@@ -1,12 +1,14 @@
-<?php include_once 'connection.php';
+<?php include 'connection.php';
 
 // Get params
 $id = $_GET['id'];
+$sql = "delete from test where id=" . $id;
 
 if (isset($mysqli)) {
-    $mysqli->query("DELETE FROM test WHERE id=$id") or
+    $mysqli->query($sql) or
     die($mysqli->error);
 
+    echo $id;
 
 }
 
