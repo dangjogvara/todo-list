@@ -34,7 +34,7 @@ function addTodo(e) {
     // create td element for table
     const id = document.createElement('td');
     id.id = 'todo-id';
-    id.innerHTML = id.className = 'todo-id';
+    id.className = 'todo-id';
     id.style.display = 'none';
 
     // create td element for table
@@ -68,12 +68,13 @@ function addTodo(e) {
             date: todoDate,
         };
 
-        $.post('saveTodo.php', todoObj).done(res => {
-            tableBody.append(row);
-            const rowId = $('.todo-id');
-            rowId.attr('id', res);
-            rowId.html(res);
-        });
+        $.post('saveTodo.php', todoObj)
+            .done(res => {
+                tableBody.append(row);
+                const rowId = $('#todo-id');
+                rowId.attr('id', res);
+                rowId.html(res);
+            });
     } else {
         alert('Please add a Todo!');
     }
@@ -118,13 +119,16 @@ function manageTodo(e) {
             url: `toggleDone.php?id=${id}&done=${done}`,
             type: 'PATCH',
         });
+
+
     }
 }
 
 // Load table from database
 function loadTable() {
-    // Load data from database using juery
+    // Load data from database using jquery
     $.getJSON('getAll.php', res => {
+
         // Loop through each to-do in the array and create table (same as in the addTodo() function)
         res.forEach(todo => {
             const deleteBtn = document.createElement('button');
@@ -149,10 +153,11 @@ function loadTable() {
 
             const loadTodo = document.createElement('td');
             loadTodo.innerText = todo.todo;
-            loadTodo.className = 'todo-text';
-            if (todo.done == 1) {
-                loadTodo.className = 'completed'
+            const done = todo.done;
+            if (done == 1) {
+                loadTodo.className = 'completed';
             }
+
 
             const loadDate = document.createElement('td');
             loadDate.innerText = todo.date;
@@ -165,7 +170,6 @@ function loadTable() {
 
             // Append to table
             tableBody.append(row);
-            console.log(todo.done);
         });
     });
 }
