@@ -120,7 +120,7 @@ function manageTodo(e) {
 function loadTable() {
     // Load data from database using juery
     $.getJSON('getAll.php', (res) => {
-        console.log(res);
+
         // Loop through each to-do in the array and create table (same as in the addTodo() function)
         res.forEach((todo) => {
             const deleteBtn = document.createElement('button');
