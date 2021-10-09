@@ -64,6 +64,16 @@ form button:hover {
     justify-content: center;
 }
 
+
+input::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+}
+
+
+input::-webkit-datetime-edit-fields-wrapper {
+    cursor: pointer;
+}
+
 /* Set width */
 table {
     min-width: 50%;
