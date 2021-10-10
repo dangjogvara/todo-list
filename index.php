@@ -21,38 +21,43 @@
     </head>
 
     <body>
-        <?php include_once 'connection.php'; ?>
-
         <header>
             <h1>Todo List</h1>
         </header>
-        <form>
-            <div class="input-container">
-                <input class="todo-input" type="text" placeholder="Add Todo">
-                <input class="date-input" type="date">
-                <button class="todo-button" name="save" id="save" type="submit">
-                    <i class="fas fa-plus-square"></i>
-                </button>
+        <div class="container">
+            <form>
+                <div class="input-container">
+                    <input class="todo-input" type="text" placeholder="Add Todo">
+                    <input class="date-input" type="date">
+                    <button class="todo-button" name="save" id="save" type="submit">
+                        <i class="fas fa-plus-square"></i>
+                    </button>
+                </div>
+            </form>
+            <div class="todo-container">
+                <table id="table">
+                    <thead>
+                    <tr>
+                        <th style="display: none">ID</th>
+                        <th>Todos</th>
+                        <th>Date</th>
+                        <th>Manage</th>
+                    </tr>
+                    </thead>
+                    <tbody class="table-body">
+                    <!-- Generate table here with JavaScript -->
+                    </tbody>
+                </table>
             </div>
-        </form>
-        <div class="todo-container">
-            <table id="table">
-                <thead>
-                <tr>
-                    <th style="display: none">ID</th>
-                    <th>Todos</th>
-                    <th>Date</th>
-                    <th>Manage</th>
-                </tr>
-                </thead>
-                <tbody class="table-body">
-                <!-- Generate table here with JavaScript -->
-                </tbody>
-            </table>
-
         </div>
 
-        <script src="./app.js"></script>
+        <div>
+            <canvas id="show-canvas" width="150" height="150"></canvas>
+        </div>
+
+
+        <script src="app.js"></script>
+        <script src="canvas.js"></script>
     </body>
     <div class="page-footer">
         <footer>
