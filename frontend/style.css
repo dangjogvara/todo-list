@@ -164,6 +164,10 @@ td {
 }
 
 
-canvas {
-    border: 1px solid black;
+.container-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-content: center;
+
 }

@@ -1,5 +1,5 @@
 const canvas = document.querySelector('#show-canvas');
-const canvastwo = document.querySelector('#show-canvas-2');
+const canvastwo = document.querySelector('#show-canvas-two');
 const ctx = canvas.getContext('2d');
 const ctxtwo = canvastwo.getContext('2d');
 
@@ -29,7 +29,16 @@ function rotate() {
     ctxtwo.fillStyle = gradient;
     ctx.fillRect(-50, -50, 100, 100);
     ctxtwo.fillRect(-50, -50, 100, 100);
-}
 
+    // Draw text inside rectangle
+    ctx.fillStyle = 'black';
+    ctx.font = 'bold 20px serif';
+    ctx.fillText(`Tasks`, -25, 5);
+
+    // Draw text inside rectangle
+    ctxtwo.fillStyle = 'black';
+    ctxtwo.font = 'bold 20px serif';
+    ctxtwo.fillText(`Tasks`, -25, 5);
+}
 
 window.addEventListener('load', startRotating);
