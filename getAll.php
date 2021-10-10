@@ -2,7 +2,7 @@
 
 
 if (isset($mysqli)) {
-    $result = $mysqli->query("SELECT * FROM test");
+    $result = $mysqli->query("SELECT * FROM todos");
     $todos = [];
     if ($result) {
         while ($row = $result->fetch_object()) {

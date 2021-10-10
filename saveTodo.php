@@ -3,7 +3,7 @@
 $todo = $_POST['todo'];
 $date = $_POST['date'];
 
-$sql = "INSERT INTO test(todo, date) VALUES('$todo','$date')";
+$sql = "INSERT INTO todos(text, date) VALUES('$todo','$date')";
 
 if (isset($mysqli)) {
     $mysqli->query($sql) or
