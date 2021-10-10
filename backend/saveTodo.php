@@ -1,9 +1,9 @@
 <?php include 'connection.php';
 
-$todo = $_POST['todo'];
+$text = $_POST['text'];
 $date = $_POST['date'];
 
-$sql = "INSERT INTO todos(text, date) VALUES('$todo','$date')";
+$sql = "INSERT INTO todos(text, date) VALUES('$text','$date')";
 
 if (isset($mysqli)) {
     $mysqli->query($sql) or

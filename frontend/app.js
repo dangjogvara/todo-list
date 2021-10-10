@@ -64,11 +64,11 @@ function addTodo(e) {
 
         // Object to save
         const todoObj = {
-            todo: todoText,
+            text: todoText,
             date: todoDate,
         };
 
-        $.post('saveTodo.php', todoObj)
+        $.post('../backend/saveTodo.php', todoObj)
             .done(res => {
                 tableBody.append(row);
                 const rowId = $('#todo-id');
@@ -93,7 +93,7 @@ function manageTodo(e) {
         const id = item.parentElement.parentElement.children[0].id;
 
         $.ajax({
-            url: `deleteTodo.php?id=${id}`,
+            url: `../backend/deleteTodo.php?id=${id}`,
             type: 'DELETE',
         }).done(id => {
             const row = item.parentElement.parentElement;
@@ -116,7 +116,7 @@ function manageTodo(e) {
         }
 
         $.ajax({
-            url: `toggleDone.php?id=${id}&done=${done}`,
+            url: `../backend/toggleDone.php?id=${id}&done=${done}`,
             type: 'PATCH',
         });
 
@@ -127,7 +127,7 @@ function manageTodo(e) {
 // Load table from database
 function loadTable() {
     // Load data from database using jquery
-    $.getJSON('getAll.php', res => {
+    $.getJSON('../backend/getAll.php', res => {
 
         // Loop through each to-do in the array and create table (same as in the addTodo() function)
         res.forEach(todo => {
@@ -152,7 +152,7 @@ function loadTable() {
             loadId.style.display = 'none';
 
             const loadTodo = document.createElement('td');
-            loadTodo.innerText = todo.todo;
+            loadTodo.innerText = todo.text;
             const done = todo.done;
             if (done == 1) {
                 loadTodo.className = 'completed';
