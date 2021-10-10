@@ -12,6 +12,7 @@ body {
     min-height: 100vh;
 }
 
+
 header {
     /* font size relative to the root element */
     font-size: 1.5rem;
@@ -160,4 +161,9 @@ td {
 /* url link text color */
 #link {
     color: white;
+}
+
+
+canvas {
+    border: 1px solid black;
 }
