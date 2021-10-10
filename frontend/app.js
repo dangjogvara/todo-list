@@ -68,9 +68,13 @@ function addTodo(e) {
             date: todoDate,
         };
 
+        // Send a post request
         $.post('../backend/saveTodo.php', todoObj)
+            // Callback funtion
             .done(res => {
+                // Append to-do to table
                 tableBody.append(row);
+                // Add auto generated ID from the database to the to-do
                 const rowId = $('#todo-id');
                 rowId.attr('id', res);
                 rowId.html(res);
@@ -92,10 +96,12 @@ function manageTodo(e) {
         // Delete to-do from database
         const id = item.parentElement.parentElement.children[0].id;
 
+        // Send ajax request
         $.ajax({
             url: `../backend/deleteTodo.php?id=${id}`,
             type: 'DELETE',
         }).done(id => {
+            // Find the row to delete dynamically in JS
             const row = item.parentElement.parentElement;
             const rowId = $('#todo-id').html();
             if ($(rowId === id)) {
@@ -115,6 +121,7 @@ function manageTodo(e) {
             done = !done;
         }
 
+        // Send ajax request
         $.ajax({
             url: `../backend/toggleDone.php?id=${id}&done=${done}`,
             type: 'PATCH',

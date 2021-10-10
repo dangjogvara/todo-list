@@ -65,16 +65,17 @@ form button:hover {
     justify-content: center;
 }
 
-
+/* Webkit based browsers - set pointer */
 input::-webkit-calendar-picker-indicator {
     cursor: pointer;
 }
 
-
+/* Webkit based browsers - set pointer */
 input::-webkit-datetime-edit-fields-wrapper {
     cursor: pointer;
 }
 
+/* Firefox specific - Set pointer on calendar */
 @-moz-document url-prefix() {
     .date-input {
         cursor: pointer;
@@ -163,7 +164,7 @@ td {
     color: white;
 }
 
-
+/* Align items */
 .container-header {
     display: flex;
     flex-direction: row;

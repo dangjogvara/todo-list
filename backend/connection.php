@@ -6,7 +6,9 @@ $user = 'root';
 $db = 'todo';
 
 
-// Connecto to DB
+// Setup connection to database
 $mysqli = new mysqli($host, $user, $password, $db);
+
+// Check for errors
 if ($mysqli->connect_error)
     die('Connection Error');
