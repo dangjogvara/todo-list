@@ -30,6 +30,7 @@ function rotate() {
     ctx.fillRect(-50, -50, 100, 100);
     ctxtwo.fillRect(-50, -50, 100, 100);
 
+
     // Draw text inside rectangle
     ctx.fillStyle = 'black';
     ctx.font = 'bold 20px serif';
