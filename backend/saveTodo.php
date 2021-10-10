@@ -15,8 +15,6 @@ if (isset($mysqli)) {
     // Return last inserted ID for use in the frontend
     $last_inserted = $mysqli->insert_id;
     echo $last_inserted;
-
-
 }
 
 

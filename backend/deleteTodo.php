@@ -13,7 +13,6 @@ if (isset($mysqli)) {
     die($mysqli->error);
 
     echo $id;
-
 }
 
 
